@@ -14,6 +14,7 @@ const sequelize = require('./config/connection.js');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
@@ -40,6 +41,7 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use(routes);
+
 
 sequalize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`API server now on port ${PORT}!`));
